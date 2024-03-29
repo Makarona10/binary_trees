@@ -11,6 +11,7 @@ int main ()
     root->left->left = binary_tree_node(root->left, 6);
     root->left->right = binary_tree_node(root->left, 56);
     root->right->left = binary_tree_node(root->right, 256);
-    x = binary_tree_leaves(root);
+    root->right->right = binary_tree_node(root->right, 256);
+    x = binary_tree_nodes(root);
     printf("%ld\n", x);
 }
