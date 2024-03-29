@@ -8,20 +8,17 @@
  * Return: If tree is NULL, your function must return 0
 */
 
-size_t binary_tree_height(const binary_tree_t *tree)
+size_t binary_tree_heightt(const binary_tree_t *tree)
 {
-    size_t left, right, height;
+    size_t left, right;
 
-    if (!tree)
-        return -1;
-    else
-    {
-        left = binary_tree_height (tree->left);
-        right = binary_tree_height (tree->right);
-
-        height = (left < right) ? right+1 : left+1;
-        return height;
-    }
+	if (tree == NULL)
+		return (0);
+	left = binary_tree_height(tree->left);
+	right = binary_tree_height(tree->right);
+	if (left >= right)
+		return (1 + left);
+	return (1 + right);
 
 }
 
@@ -40,8 +37,8 @@ int binary_tree_balance(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 
-	r = binary_tree_height(tree->right);
-	l = binary_tree_height(tree->left);
+	r = binary_tree_heightt(tree->right);
+	l = binary_tree_heightt(tree->left);
 
 	return (l - r);
 }
