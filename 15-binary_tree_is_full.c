@@ -32,15 +32,14 @@ size_t binary_tree_sizee(const binary_tree_t *tree)
 int binary_tree_is_full(const binary_tree_t *tree)
 {
     size_t r, l;
-    
+
     if (!tree)
         return (0);
 
-    r = binary_tree_sizee(tree->right);
-    l = binary_tree_sizee(tree->left);
+    r = binary_tree_is_full(tree->right);
+    l = binary_tree_is_full(tree->left);
 
-    if (l == r)
-        return (1);
-    else
-        return (0);
+    if (r == 0 || l == 0)
+		return (0);
+	return (1);
 }
